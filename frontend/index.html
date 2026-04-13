@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My note</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My note</h1>
+
+        <!--Форма для создания заметки-->
+        <div class="form-card">
+            <h2>New note</h2>
+            <input type="text" id="titleInput" placeholder="Title">
+            <textarea id="contendInput" placeholder="note text..."></textarea>
+            <button id="saveBnt">Save</button>
+        </div>
+
+        <!--Список заметок-->
+        <div class="note-list">
+            <h2>My note list</h2>
+            <div id="notesContainer">
+                <!--Тут будут заметки-->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
