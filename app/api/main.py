@@ -5,7 +5,7 @@ from app.api.v1 import users, notes
 # Создаем таблицы в БД
 Base.metadata.create_all(bind=engine)
 
-# Создаем приложение - ЭТО КЛЮЧЕВАЯ ПЕРЕМЕННАЯ!
+# Создаем приложение
 app = FastAPI(title="Notebook API", version="1.0.0")
 
 # Подключаем роутеры

@@ -7,7 +7,7 @@ from app.schemas.user import UserCreate
 class UserService:
     """Сервис для работы с полозователями """
 
-    @classmethod
+    @staticmethod
     def create_user(db: Session, user_data: UserCreate):
         """Создать нового пользователя"""
 
