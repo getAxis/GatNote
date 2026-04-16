@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from app.core.database import engine, Base
 from app.api.v1 import users, notes
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
 
 # Создаем таблицы в БД
 Base.metadata.create_all(bind=engine)
@@ -19,3 +23,11 @@ def read_root():
 @app.get("/health")
 def health_check():
     return {"status": "ok", "message": "Server is running"}
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

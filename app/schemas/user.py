@@ -5,6 +5,7 @@ class UserCreate(BaseModel):
     """Схема для создания пользователя"""
     username: str
     email: EmailStr
+    password: str
 
 class UserResponse(BaseModel):
     """Схема для ответа (что видит клиент)"""

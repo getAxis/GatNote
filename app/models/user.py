@@ -10,5 +10,6 @@ class User(Base):
     username = Column(String, unique=True, index= True, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
     created_at = Column(DateTime, default=datetime.now)
+    hashed_password = Column(String, nullable=False)
 
     notes = relationship("Note", back_populates="owner", cascade="all, delete-orphan")
