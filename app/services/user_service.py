@@ -8,17 +8,18 @@ class UserService:
     """Сервис для работы с полозователями """
 
     @staticmethod
-    def create_user(db: Session, user_data: UserCreate):
-        """Создать нового пользователя"""
-
+    def create_user(db: Session, username: str, email: str, hashed_password: str):
+        """Создать пользователя с хешированным паролем"""
         db_user = User(
-            username = user_data.username,
-            email = user_data.email
+            username=username,
+            email=email,
+            hashed_password=hashed_password
         )
         db.add(db_user)
         db.commit()
         db.refresh(db_user)
         return db_user
+    
     
     @staticmethod
     def get_user_by_id(db:Session, user_id: int):
@@ -30,6 +31,11 @@ class UserService:
         """Получить пользователя по ID"""
         return db.query(User).filter(User.email == user_email).first()
     
+    @staticmethod
+    def get_user_by_username(db:Session, user_name: str):
+        "Get user by username/Получить пользователя по имени"
+        return db.query(User).filter(User.username == user_name).first()
+
     def get_all_users(db: Session, skip: int = 0, limit:int = 100):
         """Получить всех пользователей (с пагинацией)"""
         return db.query(User).offset(skip).limit(limit).all()
